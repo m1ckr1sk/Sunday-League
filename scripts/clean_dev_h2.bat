@@ -1,0 +1,1 @@
+flyway-4.0.3\flyway -url=jdbc:h2:tcp://localhost/~/sundaymanager -user=SUNDAY_MANAGER_ADMIN -password=SUNDAY_MANAGER_ADMIN -schemas=sunday_manager -locations=filesystem:.\objects clean
