@@ -1,0 +1,3 @@
+pytest
+pycodestyle
+mysql-connector-python

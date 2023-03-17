@@ -1,12 +1,14 @@
 CREATE TABLE LEAGUE(
-league_id INT IDENTITY(1,1) PRIMARY KEY,
-league_name VARCHAR(25) NOT NULL
+league_id INT NOT NULL,
+league_name VARCHAR(25) NOT NULL,
+PRIMARY KEY(league_id)
 );
 
 CREATE TABLE TEAM(
- team_id INT IDENTITY(1,1) PRIMARY KEY,
+ team_id INT NOT NULL,
  team_name VARCHAR(25) NOT NULL,
- league_name VARCHAR(25) NOT NULL 
+ league_id INT NOT NULL,
+ PRIMARY KEY(team_id)
 );
 
 ALTER TABLE TEAM
@@ -15,9 +17,10 @@ FOREIGN KEY (league_id)
 REFERENCES LEAGUE(league_id);
 
 CREATE TABLE PLAYER(
- player_id INT IDENTITY(1,1) PRIMARY KEY,
+ player_id INT NOT NULL,
  player_name VARCHAR(25) NOT NULL,
- team_id VARCHAR(25)
+ team_id INT(25),
+ PRIMARY KEY (player_id)
 );
 
 ALTER TABLE PLAYER

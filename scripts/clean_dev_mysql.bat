@@ -1,0 +1,1 @@
+flyway-9.15.2\flyway.cmd -url=jdbc:mysql://localhost:3306/sunday_manager?useSsl=false -user=SUNDAY_MANAGER_ADMIN -password=SUNDAY_MANAGER_ADMIN -schemas=sunday_manager -locations=filesystem:.\objects migrate 
