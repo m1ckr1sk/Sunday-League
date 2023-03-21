@@ -1,5 +1,5 @@
-from mysql_connection import MySqlConnection
-from csvloader import CsvLoader
+from database.mysql_connection import MySqlConnection
+from config.csvloader import CsvLoader
 import random
 
 
@@ -10,7 +10,7 @@ class ConfigLoader:
         # list of fictional village names
         self.db_connection = db_connection
 
-    def load_config(self):
+    def load_config(self, data_path):
         self.db_connection.connect()
 
         # Create league
@@ -29,9 +29,10 @@ class ConfigLoader:
 
         # create players
         csv_loader = CsvLoader()
-        firstnames = csv_loader.load_csv("sundayleague\\database\\firstnames.csv")
-        surnames = csv_loader.load_csv("sundayleague\\database\\surnames.csv")
-        nicknames = csv_loader.load_csv("sundayleague\\database\\nicknames.csv")
+        
+        firstnames = csv_loader.load_csv(f"{data_path}\\firstnames.csv")
+        surnames = csv_loader.load_csv(f"{data_path}\\surnames.csv")
+        nicknames = csv_loader.load_csv(f"{data_path}\\nicknames.csv")
         create_query = "INSERT INTO player (player_name, team_id, nickname, player_id) VALUES (%s, %s, %s, %s)"
 
         team_id = 0
